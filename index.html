@@ -651,4 +651,170 @@ function renderProducts() {
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         <div class="prices">
- 
+          <span class="price">${money(p.price)}</span>
+          <span class="old">${money(p.old)}</span>
+          <span class="discount">${p.discount}</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn outline" onclick="addToCart(${p.id})">🛒 कार्ट में जोड़ें</button>
+          <button class="whatsapp" onclick="quickWhatsApp(${p.id})">🟢 WhatsApp</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function setCategory(cat) {
+  activeCategory = cat;
+  document.querySelectorAll(".filter").forEach(b =>
+    b.classList.toggle("active", b.dataset.cat === cat)
+  );
+  renderProducts();
+}
+
+function searchProducts() {
+  renderProducts();
+  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  showToast("प्रोडक्ट कार्ट में जोड़ दिया गया।");
+}
+
+function renderCart() {
+  document.getElementById("cartCount").textContent =
+    Object.values(cart).reduce((a,b) => a+b, 0);
+
+  const items = Object.entries(cart)
+    .filter(([id,q]) => q > 0)
+    .map(([id,q]) => ({p:products.find(p => p.id === Number(id)),q}))
+    .filter(x => x.p);
+
+  document.getElementById("cartItems").innerHTML = items.length
+    ? items.map(({p,q}) => `
+      <div class="cart-line">
+        <strong>${p.name}</strong><br>
+        ${money(p.price)} × ${q} = <b>${money(p.price*q)}</b>
+        <div class="qty">
+          <button onclick="changeQty(${p.id},-1)">−</button>
+          <span>${q}</span>
+          <button onclick="changeQty(${p.id},1)">+</button>
+          <button onclick="removeItem(${p.id})">हटाएं</button>
+        </div>
+      </div>
+    `).join("")
+    : "<p>आपका कार्ट खाली है।</p>";
+
+  const total = items.reduce((s,{p,q}) => s + p.price*q, 0);
+  document.getElementById("cartTotal").textContent = money(total);
+}
+
+function changeQty(id, amount) {
+  cart[id] = (cart[id] || 0) + amount;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function removeItem(id) {
+  delete cart[id];
+  renderCart();
+}
+
+function openCart() {
+  document.getElementById("cartOverlay").classList.add("open");
+  renderCart();
+}
+function closeCart() {
+  document.getElementById("cartOverlay").classList.remove("open");
+}
+
+function openWhatsApp(message) {
+  if (!/^91\d{10}$/.test(WHATSAPP_NUMBER)) {
+    showToast("कोड में सही WhatsApp नंबर डालें।");
+    return;
+  }
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+function quickWhatsApp(id) {
+  const p = products.find(x => x.id === id);
+  openWhatsApp(
+    `नमस्ते, मुझे ${p.name} ऑर्डर करना है। कीमत ${money(p.price)} है। कृपया उपलब्धता और डिलीवरी बताएं।`
+  );
+}
+
+function contactWhatsApp() {
+  openWhatsApp("नमस्ते, मुझे घर की हरियाली के प्रोडक्ट की जानकारी चाहिए।");
+}
+
+function placeOrder() {
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const address = document.getElementById("customerAddress").value.trim();
+
+  const items = Object.entries(cart)
+    .filter(([id,q]) => q > 0)
+    .map(([id,q]) => ({p:products.find(p => p.id === Number(id)),q}))
+    .filter(x => x.p);
+
+  if (!items.length) {
+    showToast("पहले कार्ट में प्रोडक्ट जोड़ें।");
+    return;
+  }
+  if (!name || !phone || !address) {
+    showToast("नाम, मोबाइल और पूरा पता भरें।");
+    return;
+  }
+  if (phone.replace(/\D/g,"").length < 10) {
+    showToast("सही मोबाइल नंबर भरें।");
+    return;
+  }
+
+  const lines = items.map(({p,q}) =>
+    `${p.name} × ${q} = ${money(p.price*q)}`
+  ).join("\n");
+  const total = items.reduce((s,{p,q}) => s+p.price*q,0);
+
+  const message =
+`🌱 घर की हरियाली - नया ऑर्डर
+
+ग्राहक: ${name}
+मोबाइल: ${phone}
+पता: ${address}
+
+प्रोडक्ट:
+${lines}
+
+कुल राशि: ${money(total)}
+पेमेंट: ${document.getElementById("paymentMethod").value}
+नोट: ${document.getElementById("orderNote").value.trim() || "कोई नोट नहीं"}
+
+कृपया ऑर्डर और डिलीवरी की पुष्टि करें।`;
+
+  openWhatsApp(message);
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+document.getElementById("searchInput").addEventListener("keydown", e => {
+  if (e.key === "Enter") searchProducts();
+});
+document.getElementById("cartOverlay").addEventListener("click", e => {
+  if (e.target.id === "cartOverlay") closeCart();
+});
+
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
