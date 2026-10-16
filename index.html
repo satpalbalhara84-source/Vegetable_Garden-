@@ -3,818 +3,517 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="घर की हरियाली - ग्रो बैग, बीज, खाद और किचन गार्डन सामान">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>घर की हरियाली | Online Garden Store</title>
 
 <style>
 :root {
-  --green: #08743d;
-  --dark: #164c2c;
-  --red: #bd2027;
-  --border: #e1e7df;
+  --green:#08743d;
+  --dark:#164c2c;
+  --red:#bd2027;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #17251b;
-  background: #fff;
-}
-a { text-decoration: none; color: inherit; }
-button, input, textarea, select { font: inherit; }
-button { cursor: pointer; }
-.wrap { width: 96%; max-width: 1430px; margin: auto; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:#17251b}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.wrap{width:96%;max-width:1430px;margin:auto}
 
 /* HEADER */
-.topbar {
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: space-between;
+.top{
+  min-height:80px;display:flex;align-items:center;
+  justify-content:space-between;gap:15px
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 270px;
-  color: var(--dark);
-  font-size: 29px;
-  font-weight: 900;
+.brand{
+  display:flex;align-items:center;gap:8px;
+  color:var(--dark);font-size:27px;font-weight:bold
 }
-.brand-icon { font-size: 42px; }
-.brand small {
-  display: block;
-  color: #222;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 4px;
+.brand .leaf{font-size:38px}
+.brand small{display:block;font-size:12px;color:#222;font-weight:normal}
+.search{display:flex;flex:1;max-width:520px;height:44px}
+.search input{
+  width:100%;min-width:0;padding:10px;
+  border:1px solid #ddd;border-radius:7px 0 0 7px
 }
-.search {
-  display: flex;
-  flex: 1;
-  max-width: 540px;
-  height: 45px;
+.search button{
+  width:55px;background:var(--green);color:white;
+  border:0;border-radius:0 7px 7px 0
 }
-.search input {
-  min-width: 0;
-  width: 100%;
-  padding: 0 15px;
-  border: 1px solid #d5dcd5;
-  border-radius: 8px 0 0 8px;
+.headbtn{border:0;background:white;font-size:12px;white-space:nowrap}
+.headbtn b{font-size:22px;color:var(--green)}
+.headbtn small{display:block;font-size:11px}
+nav{background:var(--green);color:white}
+.nav{
+  display:flex;gap:22px;align-items:center;
+  min-height:46px;overflow-x:auto;white-space:nowrap
 }
-.search button {
-  width: 58px;
-  border: 0;
-  color: white;
-  background: var(--green);
-  border-radius: 0 8px 8px 0;
-  font-size: 23px;
-}
-.head-action {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  white-space: nowrap;
-  border: 0;
-  background: white;
-  color: #17251b;
-  padding: 5px;
-}
-.head-action .symbol { font-size: 25px; }
-.head-action small {
-  display: block;
-  font-size: 12px;
-  font-weight: 400;
-  margin-top: 3px;
-}
-.account {
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
-  padding: 5px 12px;
-}
-.cart-icon { position: relative; font-size: 25px; }
-.count {
-  position: absolute;
-  right: -9px;
-  top: -8px;
-  background: #ed2525;
-  color: white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-  font-size: 11px;
-}
+.nav a{font-size:14px;font-weight:bold;padding:14px 0}
 
-/* NAVIGATION */
-nav { background: var(--green); color: white; }
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
-  min-height: 46px;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.nav a {
-  padding: 14px 2px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* BANNER */
-.hero {
-  min-height: 355px;
-  display: flex;
-  align-items: center;
-  position: relative;
+/* HERO BANNER */
+.hero{
+  min-height:355px;position:relative;
   background:
-    linear-gradient(90deg,
-      rgba(255,255,255,.97),
-      rgba(255,255,255,.88) 36%,
-      rgba(255,255,255,.08) 78%),
-    url("https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=1800&q=85")
-    center/cover no-repeat;
+  linear-gradient(90deg,rgba(250,252,247,.97) 0%,
+  rgba(246,250,242,.88) 38%,rgba(246,250,242,.10) 75%),
+  url('https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=1800&q=85')
+  center/cover no-repeat;
 }
-.hero-content {
-  max-width: 650px;
-  padding: 35px 0;
+.hero-inner{min-height:355px;display:flex;align-items:center}
+.hero-copy{width:55%;padding:25px 0}
+.tag{
+  display:inline-block;background:#dceecb;color:var(--dark);
+  border-radius:20px;padding:7px 12px;font-size:13px
 }
-.eyebrow {
-  display: inline-block;
-  background: #e4efcf;
-  color: var(--dark);
-  padding: 7px 12px;
-  border-radius: 25px;
-  font-size: 13px;
+.hero h1{
+  font-size:clamp(30px,4vw,52px);line-height:1.15;
+  color:var(--dark);margin:14px 0
 }
-.hero h1 {
-  color: var(--dark);
-  font-size: clamp(32px, 4vw, 54px);
-  line-height: 1.15;
-  margin: 17px 0 12px;
+.hero p{font-size:17px;line-height:1.5}
+.perks{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.perks span{
+  background:#ffffffdf;border:1px solid #e5eadf;
+  border-radius:20px;padding:8px;font-size:12px
 }
-.hero p { font-size: 18px; line-height: 1.55; }
-.points { display: flex; gap: 9px; flex-wrap: wrap; margin: 18px 0; }
-.points span {
-  background: #ffffffdf;
-  padding: 9px;
-  border-radius: 8px;
-  font-size: 13px;
+.btn{
+  background:var(--green);color:white;border:0;
+  border-radius:7px;padding:11px 15px;
+  display:inline-block;font-weight:bold
 }
-.btn {
-  display: inline-block;
-  background: var(--green);
-  color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 11px 15px;
-  font-weight: bold;
-}
-.round-badge {
-  position: absolute;
-  right: 4%;
-  top: 25px;
-  width: 115px;
-  height: 115px;
-  border-radius: 50%;
-  background: #ffe76b;
-  color: var(--dark);
-  display: grid;
-  place-content: center;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px;
+.sunbadge{
+  position:absolute;right:4%;top:22px;
+  background:#ffe76b;color:var(--dark);
+  width:100px;height:100px;border-radius:50%;
+  display:grid;place-content:center;text-align:center;
+  font-weight:bold;font-size:13px
 }
 
 /* CATEGORIES */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 12px;
-  padding: 15px 0 12px;
+.categories{
+  display:grid;grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:12px;padding:16px 0
 }
-.category {
-  background: white;
-  border: 0;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.35;
-  padding: 0 2px;
+.cat{border:0;background:white;text-align:center;font-size:13px}
+.cat img{
+  display:block;width:105px;height:105px;max-width:100%;
+  object-fit:cover;border-radius:50%;
+  border:1px solid #e4e8e2;margin:0 auto 8px
 }
-.category img {
-  display: block;
-  width: 115px;
-  height: 115px;
-  max-width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid #e5e5e5;
-  margin: 0 auto 8px;
-}
-.category small {
-  display: block;
-  color: #505750;
-  font-size: 12px;
-}
+.cat small{display:block;color:#555;margin-top:3px}
 
-/* PRODUCT SECTION */
-.products { padding: 12px 0 30px; }
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+/* PRODUCTS */
+.products{padding:15px 0 32px}
+.section{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;margin-bottom:15px
 }
-.section-title { font-size: 28px; margin: 0; }
-.subtitle { color: #687068; font-size: 14px; }
-.title-group {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.section h2{font-size:27px;margin:0}
+.sub{font-size:14px;color:#687068}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}
+.filter{
+  border:1px solid #dce3dc;background:white;
+  border-radius:22px;padding:8px 12px;font-size:12px
 }
-.filters {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
+.filter.active{background:var(--green);color:white}
+.grid{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:15px
 }
-.filter {
-  border: 1px solid var(--border);
-  background: white;
-  border-radius: 22px;
-  padding: 7px 12px;
+.product{border:1px solid #e0e3df;border-radius:7px;overflow:hidden}
+.pimg{height:145px;position:relative;background:#eef4e9}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.ribbon{
+  position:absolute;top:6px;right:0;background:#ed3030;
+  color:white;padding:5px 8px;font-size:11px
 }
-.filter.active { background: var(--green); color: white; }
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
-}
-.product {
-  border: 1px solid #e0e3df;
-  border-radius: 7px;
-  overflow: hidden;
-  background: white;
-  min-width: 0;
-}
-.product-image {
-  height: 140px;
-  position: relative;
-  background: #edf3e8;
-}
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.ribbon {
-  position: absolute;
-  right: 0;
-  top: 6px;
-  background: #ef3030;
-  color: white;
-  padding: 5px 8px;
-  font-size: 11px;
-  font-weight: bold;
-}
-.product-body { padding: 9px 10px; }
-.product h3 { font-size: 14px; margin: 0 0 5px; }
-.product p { font-size: 12px; color: #606960; margin: 0 0 9px; }
-.prices {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin: 8px 0;
-}
-.price { font-size: 21px; color: var(--red); font-weight: 900; }
-.old { font-size: 12px; color: #777; text-decoration: line-through; }
-.discount {
-  background: #e8f5e9;
-  color: #16733b;
-  font-size: 11px;
-  padding: 3px 5px;
-  border-radius: 4px;
-}
-.product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.product-actions button { font-size: 12px; padding: 8px 3px; }
-.outline { background: white; color: var(--green); border: 1px solid #b8cbbd; }
-.whatsapp { background: white; color: var(--green); border: 1px solid #65aa78; border-radius: 7px; }
-.empty { grid-column: 1/-1; text-align: center; padding: 30px; }
+.pbody{padding:10px}
+.product h3{font-size:14px;line-height:1.35;margin:0 0 6px}
+.product p{font-size:12px;color:#606960;min-height:30px;margin:0}
+.prices{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:9px 0}
+.price{font-size:20px;color:var(--red);font-weight:bold}
+.old{font-size:12px;color:#777;text-decoration:line-through}
+.discount{font-size:11px;background:#e8f5e9;color:#16733b;padding:4px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.actions button{font-size:11px;padding:8px 3px;border-radius:5px}
+.outline,.wa{background:white;color:var(--green);border:1px solid #65aa78}
 
-/* INFO AND FOOTER */
-.info { background: #f0f6e8; padding: 32px 0; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
-footer { background: #183422; color: white; padding: 25px 0; }
+/* INFORMATION AND FOOTER */
+.info{background:#f0f6e8;padding:30px 0}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:white;border:1px solid #e1e7df;border-radius:10px;padding:20px}
+footer{background:#183422;color:white;padding:25px 0}
 
 /* CART */
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #0008;
-  z-index: 20;
-  justify-content: flex-end;
+.overlay{
+  display:none;position:fixed;inset:0;background:#0008;
+  z-index:20;justify-content:flex-end
 }
-.overlay.open { display: flex; }
-.drawer {
-  background: #fbfcf8;
-  width: min(470px, 100%);
-  height: 100%;
-  overflow: auto;
-  padding: 20px;
+.overlay.open{display:flex}
+.drawer{
+  width:min(460px,100%);height:100%;overflow:auto;
+  background:#fbfcf8;padding:20px
 }
-.drawer-head { display: flex; justify-content: space-between; align-items: center; }
-.close { border: 0; background: #eee; padding: 9px; border-radius: 6px; }
-.cart-line { padding: 12px; background: white; border: 1px solid var(--border); border-radius: 8px; margin: 10px 0; }
-.qty { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
-.qty button { background: white; border: 1px solid #ddd; padding: 5px 10px; }
-.total { display: flex; justify-content: space-between; font-weight: 900; font-size: 20px; border-top: 1px solid #ddd; padding: 15px 0; }
-.checkout { display: grid; gap: 10px; }
-.checkout input, .checkout textarea, .checkout select {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #d5ddd3;
-  border-radius: 7px;
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.cart-line{background:white;border:1px solid #ddd;padding:12px;margin:10px 0;border-radius:8px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:8px}
+.qty button{background:white;border:1px solid #ddd;padding:5px 10px}
+.total{
+  display:flex;justify-content:space-between;font-size:20px;
+  font-weight:bold;padding:14px 0;border-top:1px solid #ddd
 }
-.checkout textarea { min-height: 65px; }
-.notice { font-size: 12px; color: #697069; }
-.toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 30;
-  display: none;
-  background: #183d27;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
+.checkout{display:grid;gap:10px}
+.checkout input,.checkout textarea,.checkout select{
+  width:100%;padding:11px;border:1px solid #ddd;border-radius:7px
 }
-.toast.show { display: block; }
+.checkout textarea{min-height:60px}
+.toast{
+  display:none;position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);background:#183d27;
+  color:white;padding:12px;border-radius:8px;z-index:30
+}
+.toast.show{display:block}
 
-@media(max-width:1000px) {
-  .topbar { gap: 10px; }
-  .brand { min-width: 220px; font-size: 22px; }
-  .brand-icon { font-size: 33px; }
-  .categories { grid-template-columns: repeat(4, 1fr); }
-  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .nav { justify-content: flex-start; }
+@media(max-width:1000px){
+ .brand{font-size:21px}
+ .categories{grid-template-columns:repeat(4,1fr)}
+ .cat img{width:85px;height:85px}
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .nav{justify-content:flex-start}
 }
-@media(max-width:650px) {
-  .topbar { flex-wrap: wrap; padding: 9px 0; gap: 8px; }
-  .brand { flex: 1; min-width: 0; font-size: 19px; }
-  .brand-icon { font-size: 29px; }
-  .brand small { font-size: 10px; }
-  .search { order: 5; flex-basis: 100%; max-width: none; height: 40px; }
-  .head-action { font-size: 11px; padding: 3px; }
-  .head-action .symbol { font-size: 20px; }
-  .head-action small { font-size: 10px; }
-  .account { padding: 3px 5px; }
-  .nav { gap: 17px; min-height: 40px; }
-  .nav a { font-size: 12px; padding: 12px 0; }
-  .hero { min-height: 390px; background-position: 60% center; }
-  .hero-content { padding: 60px 0 25px; }
-  .hero h1 { font-size: 33px; }
-  .hero p { font-size: 15px; }
-  .round-badge { width: 80px; height: 80px; right: 8px; top: 8px; font-size: 11px; }
-  .points span { font-size: 11px; }
-  .categories { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 4px; }
-  .category { font-size: 12px; }
-  .category img { width: 70px; height: 70px; }
-  .category small { font-size: 10px; }
-  .section-head { align-items: flex-start; flex-direction: column; }
-  .section-title { font-size: 22px; }
-  .subtitle { font-size: 12px; }
-  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-  .product-image { height: 112px; }
-  .product-body { padding: 8px; }
-  .product h3 { font-size: 13px; }
-  .price { font-size: 18px; }
-  .product-actions { grid-template-columns: 1fr; }
-  .info-grid { grid-template-columns: 1fr; }
+@media(max-width:650px){
+ .top{padding:8px 0;flex-wrap:wrap;gap:8px}
+ .brand{flex:1;font-size:18px}
+ .brand .leaf{font-size:27px}
+ .brand small{font-size:10px}
+ .search{order:5;flex-basis:100%;max-width:none}
+ .headbtn{font-size:10px;padding:2px}
+ .headbtn b{font-size:18px}
+ .headbtn small{font-size:9px}
+ .nav{gap:16px;min-height:40px}
+ .nav a{font-size:12px;padding:12px 0}
+ .hero,.hero-inner{min-height:390px}
+ .hero{background-position:58% center}
+ .hero-copy{width:77%;padding-top:55px}
+ .hero h1{font-size:29px}
+ .hero p{font-size:14px}
+ .perks span{font-size:10px;padding:6px}
+ .sunbadge{width:68px;height:68px;right:5px;top:7px;font-size:9px}
+ .categories{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 4px}
+ .cat{font-size:11px;padding:0}
+ .cat img{width:65px;height:65px}
+ .cat small{font-size:10px}
+ .section{align-items:flex-start;flex-direction:column}
+ .section h2{font-size:22px}
+ .sub{font-size:12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .pimg{height:110px}
+ .pbody{padding:8px}
+ .product h3{font-size:13px}
+ .price{font-size:18px}
+ .actions{grid-template-columns:1fr}
+ .info-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 <header>
-  <div class="wrap topbar">
-    <a class="brand" href="#home">
-      <span class="brand-icon">🌿</span>
-      <span>घर की हरियाली<small>अपने घर में उगाएं ताजी सब्जियां</small></span>
-    </a>
+<div class="wrap top">
+ <a class="brand" href="#home">
+  <span class="leaf">🌿</span>
+  <span>घर की हरियाली
+   <small>अपने घर में उगाएं ताजी सब्जियां</small>
+  </span>
+ </a>
+ <div class="search">
+  <input id="search" placeholder="क्या खोज रहे हैं? ग्रो बैग, बीज, खाद...">
+  <button onclick="searchProducts()">⌕</button>
+ </div>
+ <button class="headbtn" onclick="contactWA()">
+  <b>🟢</b> WhatsApp ऑर्डर<small>+91-9097979200</small>
+ </button>
+ <button class="headbtn" onclick="toast('ऑर्डर के लिए कार्ट खोलें।')">
+  <b>♙</b> मेरा अकाउंट
+ </button>
+ <button class="headbtn" onclick="openCart()">
+  <b>🛒</b><span id="count">0</span><small>कार्ट</small>
+ </button>
+</div>
 
-    <div class="search">
-      <input id="searchInput" placeholder="क्या खोज रहे हैं? (जैसे ग्रो बैग, बीज, ड्रिप किट...)">
-      <button onclick="searchProducts()">⌕</button>
-    </div>
-
-    <button class="head-action" onclick="contactWhatsApp()">
-      <span class="symbol">🟢</span>
-      <span>WhatsApp ऑर्डर<small>+91-9097979200</small></span>
-    </button>
-
-    <button class="head-action account" onclick="showToast('ऑर्डर करने के लिए कार्ट खोलें।')">
-      <span class="symbol">♙</span><span>मेरा अकाउंट</span>
-    </button>
-
-    <button class="head-action" onclick="openCart()">
-      <span class="cart-icon">🛒<span class="count" id="cartCount">0</span></span>
-      <small>कार्ट</small>
-    </button>
-  </div>
-
-  <nav><div class="wrap nav">
-    <a href="#home">होम</a>
-    <a href="#products" onclick="setCategory('grow')">ग्रो बैग</a>
-    <a href="#products" onclick="setCategory('seeds')">सब्जियों के बीज</a>
-    <a href="#products" onclick="setCategory('soil')">मिट्टी व खाद</a>
-    <a href="#products" onclick="setCategory('water')">वाटरिंग सिस्टम</a>
-    <a href="#products" onclick="setCategory('tools')">गार्डनिंग टूल्स</a>
-    <a href="#products" onclick="setCategory('all')">कॉम्बो पैक</a>
-    <a href="#guide">ब्लॉग / जानकारी</a>
-    <a href="#about">हमारे बारे में</a>
-    <a href="#contact">संपर्क करें</a>
-  </div></nav>
+<nav><div class="wrap nav">
+ <a href="#home">होम</a>
+ <a href="#products" onclick="category('grow')">ग्रो बैग</a>
+ <a href="#products" onclick="category('seeds')">सब्जियों के बीज</a>
+ <a href="#products" onclick="category('soil')">मिट्टी व खाद</a>
+ <a href="#products" onclick="category('water')">वाटरिंग सिस्टम</a>
+ <a href="#products" onclick="category('tools')">गार्डनिंग टूल्स</a>
+ <a href="#products" onclick="category('combo')">कॉम्बो पैक</a>
+ <a href="#guide">ब्लॉग / जानकारी</a>
+ <a href="#about">हमारे बारे में</a>
+ <a href="#contact">संपर्क करें</a>
+</div></nav>
 </header>
 
 <main>
 <section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero-content">
-      <span class="eyebrow">आपका छोटा किचन गार्डन 🌱</span>
-      <h1>अपने घर में उगाएं<br>ताजी और सुरक्षित सब्जियां</h1>
-      <p>ग्रो बैग, बीज, मिट्टी, वाटरिंग सिस्टम और सभी गार्डनिंग सामान एक ही जगह।</p>
-      <div class="points">
-        <span>🌱 रसायन मुक्त गार्डन</span>
-        <span>🏡 घर की छत / बालकनी</span>
-        <span>🚚 डिलीवरी की सुविधा</span>
-      </div>
-      <a class="btn" href="#products">अभी खरीदें →</a>
-    </div>
+ <div class="wrap hero-inner">
+  <div class="hero-copy">
+   <span class="tag">आपका अपना किचन गार्डन 🌱</span>
+   <h1>अपने घर में उगाएं<br>ताजी और सुरक्षित सब्जियां</h1>
+   <p>ग्रो बैग, बीज, मिट्टी, वाटरिंग सिस्टम और सभी गार्डनिंग सामान एक ही जगह।</p>
+   <div class="perks">
+    <span>🌱 घर की बागवानी</span>
+    <span>🏡 छत / बालकनी</span>
+    <span>🚚 डिलीवरी सुविधा</span>
+   </div>
+   <a class="btn" href="#products">अभी खरीदें →</a>
   </div>
-  <div class="round-badge">आज ही अपना<br>किचन गार्डन<br>शुरू करें 🌿</div>
+ </div>
+ <div class="sunbadge">आज ही अपना<br>किचन गार्डन<br>शुरू करें 🌿</div>
 </section>
 
 <div class="wrap categories">
-  <button class="category" onclick="setCategory('grow')">
-    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="ग्रो बैग">
-    ग्रो बैग<small>(Grow Bags)</small>
-  </button>
-  <button class="category" onclick="setCategory('seeds')">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=300&q=80" alt="बीज">
-    सब्जियों के बीज<small>(Seeds)</small>
-  </button>
-  <button class="category" onclick="setCategory('soil')">
-    <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=300&q=80" alt="खाद">
-    मिट्टी व खाद<small>(Soil & Fertilizer)</small>
-  </button>
-  <button class="category" onclick="setCategory('water')">
-    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=300&q=80" alt="वाटरिंग">
-    वाटरिंग सिस्टम<small>(Drip Irrigation)</small>
-  </button>
-  <button class="category" onclick="setCategory('tools')">
-    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=300&q=80" alt="टूल्स">
-    गार्डनिंग टूल्स<small>(Tools)</small>
-  </button>
-  <button class="category" onclick="setCategory('all')">
-    <img src="https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=300&q=80" alt="कॉम्बो">
-    कॉम्बो पैक<small>(Combo Packs)</small>
-  </button>
-  <button class="category" onclick="setCategory('grow')">
-    <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=300&q=80" alt="पौधे">
-    सब्जी के पौधे<small>(Live Plants)</small>
-  </button>
-  <button class="category" onclick="setCategory('all')">
-    <img src="https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=300&q=80" alt="टेरेस गार्डन">
-    टेरेस गार्डन<small>(Garden Setup)</small>
-  </button>
+ <button class="cat" onclick="category('grow')">
+  <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=300&q=80" alt="ग्रो बैग">
+  ग्रो बैग<small>(Grow Bags)</small>
+ </button>
+ <button class="cat" onclick="category('seeds')">
+  <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=300&q=80" alt="बीज">
+  सब्जियों के बीज<small>(Seeds)</small>
+ </button>
+ <button class="cat" onclick="category('soil')">
+  <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=300&q=80" alt="मिट्टी">
+  मिट्टी व खाद<small>(Soil & Fertilizer)</small>
+ </button>
+ <button class="cat" onclick="category('water')">
+  <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=300&q=80" alt="पानी">
+  वाटरिंग सिस्टम<small>(Drip Irrigation)</small>
+ </button>
+ <button class="cat" onclick="category('tools')">
+  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=300&q=80" alt="गार्डन टूल्स">
+  गार्डनिंग टूल्स<small>(Tools)</small>
+ </button>
+ <button class="cat" onclick="category('combo')">
+  <img src="https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=300&q=80" alt="कॉम्बो">
+  कॉम्बो पैक<small>(Combo Packs)</small>
+ </button>
+ <button class="cat" onclick="category('plants')">
+  <img src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=300&q=80" alt="पौधे">
+  सब्जी के पौधे<small>(Live Plants)</small>
+ </button>
+ <button class="cat" onclick="category('all')">
+  <img src="https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=300&q=80" alt="टेरेस गार्डन">
+  टेरेस गार्डन<small>(Garden Setup)</small>
+ </button>
 </div>
 
 <section class="products" id="products">
 <div class="wrap">
-  <div class="section-head">
-    <div class="title-group">
-      <h2 class="section-title">🌿 लोकप्रिय उत्पाद</h2>
-      <span class="subtitle">घर पर सब्जियां उगाने के लिए जरूरी सामान</span>
-    </div>
-    <button class="btn" onclick="setCategory('all')">सभी उत्पाद देखें →</button>
+ <div class="section">
+  <div><h2>🌿 लोकप्रिय उत्पाद</h2>
+   <span class="sub">घर पर सब्जियां उगाने के लिए जरूरी सामान</span>
   </div>
+  <button class="btn" onclick="category('all')">सभी उत्पाद देखें →</button>
+ </div>
 
-  <div class="filters">
-    <button class="filter active" data-cat="all" onclick="setCategory('all')">सभी सामान</button>
-    <button class="filter" data-cat="grow" onclick="setCategory('grow')">ग्रो बैग</button>
-    <button class="filter" data-cat="seeds" onclick="setCategory('seeds')">बीज</button>
-    <button class="filter" data-cat="soil" onclick="setCategory('soil')">मिट्टी व खाद</button>
-    <button class="filter" data-cat="water" onclick="setCategory('water')">वाटरिंग सिस्टम</button>
-    <button class="filter" data-cat="tools" onclick="setCategory('tools')">गार्डनिंग टूल्स</button>
-  </div>
-
-  <div class="product-grid" id="productGrid"></div>
+ <div class="filters">
+  <button class="filter active" data-cat="all" onclick="category('all')">सभी सामान</button>
+  <button class="filter" data-cat="grow" onclick="category('grow')">ग्रो बैग</button>
+  <button class="filter" data-cat="seeds" onclick="category('seeds')">बीज</button>
+  <button class="filter" data-cat="soil" onclick="category('soil')">मिट्टी व खाद</button>
+  <button class="filter" data-cat="water" onclick="category('water')">वाटरिंग सिस्टम</button>
+  <button class="filter" data-cat="tools" onclick="category('tools')">गार्डनिंग टूल्स</button>
+  <button class="filter" data-cat="plants" onclick="category('plants')">पौधे</button>
+  <button class="filter" data-cat="combo" onclick="category('combo')">कॉम्बो</button>
+ </div>
+ <div class="grid" id="grid"></div>
 </div>
 </section>
 
 <section class="info" id="guide">
-  <div class="wrap info-grid">
-    <div>
-      <h2>अपना किचन गार्डन बनाएं</h2>
-      <p>छत या बालकनी में थोड़ी जगह और सही सामान के साथ ताजी सब्जियां उगाना शुरू करें।</p>
-      <a class="btn" href="#products">गार्डनिंग सामान देखें</a>
-    </div>
-    <div class="card">
-      <h3>शुरुआत करने के 4 कदम</h3>
-      <ol>
-        <li>धूप वाली जगह चुनें।</li>
-        <li>पानी निकलने वाले ग्रो बैग लें।</li>
-        <li>मौसम के अनुसार बीज लगाएं।</li>
-        <li>पौधों को जरूरत के अनुसार पानी दें।</li>
-      </ol>
-    </div>
-  </div>
+<div class="wrap info-grid">
+ <div>
+  <h2>अपना किचन गार्डन बनाएं</h2>
+  <p>छत या बालकनी में थोड़ी जगह और सही सामान के साथ सब्जियां उगाना शुरू करें।</p>
+  <a class="btn" href="#products">गार्डनिंग सामान देखें</a>
+ </div>
+ <div class="card">
+  <h3>शुरुआत करने के 4 कदम</h3>
+  <ol>
+   <li>धूप वाली जगह चुनें।</li>
+   <li>पानी निकलने वाले ग्रो बैग लें।</li>
+   <li>मौसम के अनुसार बीज लगाएं।</li>
+   <li>पौधों को जरूरत के अनुसार पानी दें।</li>
+  </ol>
+ </div>
+</div>
 </section>
 
-<section id="about">
-  <div class="wrap">
-    <h2>घर की हरियाली के बारे में</h2>
-    <p>घर पर किचन गार्डन शुरू करने के लिए जरूरी सामान और जानकारी एक जगह।</p>
-  </div>
+<section class="wrap" id="about">
+ <h2>घर की हरियाली के बारे में</h2>
+ <p>घर पर किचन गार्डन शुरू करने के लिए जरूरी सामान और जानकारी एक जगह।</p>
 </section>
-
-<section id="contact">
-  <div class="wrap card">
-    <h2>हमसे संपर्क करें</h2>
-    <p>प्रोडक्ट, कीमत या डिलीवरी के बारे में पूछें।</p>
-    <button class="btn" onclick="contactWhatsApp()">WhatsApp पर संपर्क करें</button>
-  </div>
+<section class="wrap card" id="contact">
+ <h2>हमसे संपर्क करें</h2>
+ <p>प्रोडक्ट, कीमत या डिलीवरी के बारे में पूछें।</p>
+ <button class="btn" onclick="contactWA()">WhatsApp पर संपर्क करें</button>
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <strong>🌱 घर की हरियाली</strong><br>
-    <small>अपने घर में उगाएं ताजी सब्जियां।</small>
-    <p><small>© 2026 घर की हरियाली</small></p>
-  </div>
-</footer>
+<footer><div class="wrap">
+ <strong>🌱 घर की हरियाली</strong><br>
+ <small>अपने घर में उगाएं ताजी सब्जियां।</small>
+ <p><small>© 2026 घर की हरियाली</small></p>
+</div></footer>
 
-<div class="overlay" id="cartOverlay">
-<div class="drawer">
+<div class="overlay" id="overlay">
+ <div class="drawer">
   <div class="drawer-head">
-    <h2>🛒 आपका कार्ट</h2>
-    <button class="close" onclick="closeCart()">✕ बंद करें</button>
+   <h2>🛒 आपका कार्ट</h2>
+   <button onclick="closeCart()">✕ बंद करें</button>
   </div>
-  <div id="cartItems"></div>
-  <div class="total"><span>कुल राशि</span><span id="cartTotal">₹0</span></div>
+  <div id="items"></div>
+  <div class="total"><span>कुल राशि</span><span id="total">₹0</span></div>
   <div class="checkout">
-    <h3>डिलीवरी की जानकारी</h3>
-    <input id="customerName" placeholder="पूरा नाम *">
-    <input id="customerPhone" type="tel" placeholder="मोबाइल नंबर *">
-    <textarea id="customerAddress" placeholder="पूरा डिलीवरी पता *"></textarea>
-    <select id="paymentMethod">
-      <option>Cash on Delivery</option>
-      <option>पेमेंट की जानकारी WhatsApp पर पूछें</option>
-    </select>
-    <textarea id="orderNote" placeholder="ऑर्डर नोट (वैकल्पिक)"></textarea>
-    <button class="btn" onclick="placeOrder()">WhatsApp पर ऑर्डर भेजें</button>
-    <p class="notice">ऑर्डर WhatsApp में खुलेगा। ऑनलाइन पेमेंट अभी सक्रिय नहीं है।</p>
+   <h3>डिलीवरी की जानकारी</h3>
+   <input id="name" placeholder="पूरा नाम *">
+   <input id="phone" placeholder="मोबाइल नंबर *">
+   <textarea id="address" placeholder="पूरा डिलीवरी पता *"></textarea>
+   <select id="payment">
+    <option>Cash on Delivery</option>
+    <option>पेमेंट की जानकारी WhatsApp पर पूछें</option>
+   </select>
+   <textarea id="note" placeholder="ऑर्डर नोट (वैकल्पिक)"></textarea>
+   <button class="btn" onclick="placeOrder()">WhatsApp पर ऑर्डर भेजें</button>
+   <small>ऑनलाइन पेमेंट अभी सक्रिय नहीं है।</small>
   </div>
+ </div>
 </div>
-</div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-// अपना WhatsApp नंबर देश कोड के साथ लिखें।
-const WHATSAPP_NUMBER = "919097979200";
+/* अपना WhatsApp नंबर देश कोड के साथ लिखें */
+const WA="919097979200";
 
-const products = [
- {id:1,name:"HDPE ग्रो बैग (5 PCS सेट)",cat:"grow",price:399,old:499,discount:"20% छूट",
-  image:"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=85",
-  desc:"12x12 इंच, मजबूत और टिकाऊ।"},
- {id:2,name:"सब्जियों के बीज (मिक्स पैक)",cat:"seeds",price:199,old:299,discount:"33% छूट",
-  image:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=85",
-  desc:"टमाटर, मिर्च, बैंगन, पालक आदि।"},
- {id:3,name:"वर्मी कम्पोस्ट (5kg)",cat:"soil",price:249,old:349,discount:"29% छूट",
-  image:"https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=85",
-  desc:"पौधों के लिए कम्पोस्ट खाद।"},
- {id:4,name:"कोकोपीट ब्लॉक (5kg)",cat:"soil",price:299,old:399,discount:"25% छूट",
-  image:"https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=85",
-  desc:"पॉटिंग मिक्स बनाने के लिए।"},
- {id:5,name:"ड्रिप वाटरिंग किट",cat:"water",price:699,old:899,discount:"22% छूट",
-  image:"https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=85",
-  desc:"कई पौधों को पानी देने के लिए।"},
- {id:6,name:"धनिया बीज पैक",cat:"seeds",price:39,old:49,discount:"20% छूट",
-  image:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=85",
-  desc:"घर में ताजा धनिया उगाएं।"},
- {id:7,name:"गार्डनिंग टूल सेट",cat:"tools",price:249,old:299,discount:"17% छूट",
-  image:"https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=85",
-  desc:"रोपाई और मिट्टी की देखभाल।"},
- {id:8,name:"किचन गार्डन स्टार्टर किट",cat:"grow",price:599,old:699,discount:"14% छूट",
-  image:"https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=600&q=85",
-  desc:"शुरुआत के लिए जरूरी सामान।"}
+const photo={
+ grow:"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=85",
+ seeds:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=85",
+ soil:"https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=85",
+ water:"https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=85",
+ tools:"https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=85",
+ plants:"https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=600&q=85",
+ combo:"https://images.unsplash.com/photo-1599685315640-7ec1f1e5d2d3?auto=format&fit=crop&w=600&q=85"
+};
+
+/* 24 प्रोडक्ट: नाम, कैटेगरी, कीमत और फोटो */
+const products=[
+{id:1,name:"HDPE ग्रो बैग (5 PCS सेट)",cat:"grow",price:399,old:499,off:"20% छूट",desc:"12x12 इंच, मजबूत और टिकाऊ।"},
+{id:2,name:"सब्जियों के बीज (मिक्स पैक)",cat:"seeds",price:199,old:299,off:"33% छूट",desc:"टमाटर, मिर्च, बैंगन, पालक आदि।"},
+{id:3,name:"वर्मी कम्पोस्ट (5kg)",cat:"soil",price:249,old:349,off:"29% छूट",desc:"पौधों के लिए जैविक कम्पोस्ट।"},
+{id:4,name:"कोकोपीट ब्लॉक (5kg)",cat:"soil",price:299,old:399,off:"25% छूट",desc:"पॉटिंग मिक्स बनाने के लिए।"},
+{id:5,name:"ड्रिप वाटरिंग किट",cat:"water",price:699,old:899,off:"22% छूट",desc:"कई पौधों को पानी देने के लिए।"},
+{id:6,name:"धनिया बीज पैक",cat:"seeds",price:39,old:49,off:"20% छूट",desc:"घर में ताजा धनिया उगाएं।"},
+{id:7,name:"गार्डनिंग टूल सेट",cat:"tools",price:249,old:299,off:"17% छूट",desc:"रोपाई और मिट्टी की देखभाल।"},
+{id:8,name:"किचन गार्डन स्टार्टर किट",cat:"combo",price:599,old:699,off:"14% छूट",desc:"शुरुआत के लिए जरूरी सामान।"},
+{id:9,name:"टमाटर बीज पैक",cat:"seeds",price:49,old:60,off:"18% छूट",desc:"घर पर टमाटर उगाने के लिए।"},
+{id:10,name:"हरी मिर्च बीज पैक",cat:"seeds",price:45,old:55,off:"18% छूट",desc:"किचन गार्डन के लिए मिर्च।"},
+{id:11,name:"पालक बीज पैक",cat:"seeds",price:35,old:45,off:"22% छूट",desc:"पत्तेदार सब्जी के बीज।"},
+{id:12,name:"भिंडी बीज पैक",cat:"seeds",price:45,old:60,off:"25% छूट",desc:"गर्मी के मौसम के लिए।"},
+{id:13,name:"बड़ा ग्रो बैग (18x18)",cat:"grow",price:129,old:159,off:"19% छूट",desc:"बड़े पौधों और सब्जियों के लिए।"},
+{id:14,name:"ग्रो बैग (12x12) 10 पीस",cat:"grow",price:599,old:749,off:"20% छूट",desc:"छत और बालकनी गार्डन के लिए।"},
+{id:15,name:"पॉटिंग मिक्स (5kg)",cat:"soil",price:199,old:249,off:"20% छूट",desc:"गमलों और ग्रो बैग के लिए।"},
+{id:16,name:"नीम खली खाद (1kg)",cat:"soil",price:99,old:129,off:"23% छूट",desc:"मिट्टी में मिलाने के लिए।"},
+{id:17,name:"हैंड स्प्रे पंप",cat:"tools",price:149,old:199,off:"25% छूट",desc:"पौधों पर पानी छिड़कने के लिए।"},
+{id:18,name:"गार्डन ग्लव्स",cat:"tools",price:99,old:129,off:"23% छूट",desc:"गार्डनिंग में हाथों की सुरक्षा।"},
+{id:19,name:"ऑटो ड्रिप किट (20 पौधे)",cat:"water",price:699,old:899,off:"22% छूट",desc:"पौधों को पानी देने के लिए।"},
+{id:20,name:"बालकनी गार्डन कॉम्बो",cat:"combo",price:999,old:1299,off:"23% छूट",desc:"ग्रो बैग, खाद और बीज का कॉम्बो।"},
+{id:21,name:"टमाटर का जीवित पौधा",cat:"plants",price:79,old:99,off:"20% छूट",desc:"रोपने के लिए टमाटर का पौधा।"},
+{id:22,name:"नींबू का पौधा",cat:"plants",price:199,old:249,off:"20% छूट",desc:"गमले में लगाने योग्य पौधा।"},
+{id:23,name:"माइक्रोग्रीन्स बीज किट",cat:"combo",price:249,old:299,off:"17% छूट",desc:"कम जगह में हरी पत्तियां उगाएं।"},
+{id:24,name:"सेल्फ-वॉटरिंग प्लांटर",cat:"water",price:349,old:449,off:"22% छूट",desc:"पानी देने की सुविधा वाला प्लांटर।"}
 ];
 
-let activeCategory = "all";
-let cart = {};
-const money = n => "₹" + Number(n).toLocaleString("en-IN");
+let active="all";
+let cart={};
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
 
-function renderProducts() {
-  const query = document.getElementById("searchInput").value.trim().toLowerCase();
-  const list = products.filter(p =>
-    (activeCategory === "all" || p.cat === activeCategory) &&
-    (p.name + " " + p.desc).toLowerCase().includes(query)
-  );
-
-  const grid = document.getElementById("productGrid");
-  if (!list.length) {
-    grid.innerHTML = '<div class="empty">कोई प्रोडक्ट नहीं मिला।</div>';
-    return;
-  }
-
-  grid.innerHTML = list.map(p => `
-    <article class="product">
-      <div class="product-image">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
-        ${p.id === 1 ? '<span class="ribbon">TOP SELLER</span>' : ''}
-      </div>
-      <div class="product-body">
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="prices">
-          <span class="price">${money(p.price)}</span>
-          <span class="old">${money(p.old)}</span>
-          <span class="discount">${p.discount}</span>
-        </div>
-        <div class="product-actions">
-          <button class="btn outline" onclick="addToCart(${p.id})">🛒 कार्ट में जोड़ें</button>
-          <button class="whatsapp" onclick="quickWhatsApp(${p.id})">🟢 WhatsApp</button>
-        </div>
-      </div>
-    </article>
-  `).join("");
+function render(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const list=products.filter(p=>
+  (active==="all"||p.cat===active)&&
+  (p.name+" "+p.desc).toLowerCase().includes(q)
+ );
+ document.getElementById("grid").innerHTML=list.length?
+ list.map(p=>`
+ <article class="product">
+  <div class="pimg">
+   <img src="${photo[p.cat]||photo.combo}" alt="${p.name}" loading="lazy">
+   ${p.id===1?'<span class="ribbon">TOP SELLER</span>':''}
+  </div>
+  <div class="pbody">
+   <h3>${p.name}</h3><p>${p.desc}</p>
+   <div class="prices">
+    <span class="price">${money(p.price)}</span>
+    <span class="old">${money(p.old)}</span>
+    <span class="discount">${p.off}</span>
+   </div>
+   <div class="actions">
+    <button class="btn outline" onclick="add(${p.id})">🛒 कार्ट में जोड़ें</button>
+    <button class="wa" onclick="quick(${p.id})">🟢 WhatsApp</button>
+   </div>
+  </div>
+ </article>`).join(""):"<p>कोई प्रोडक्ट नहीं मिला।</p>";
 }
 
-function setCategory(cat) {
-  activeCategory = cat;
-  document.querySelectorAll(".filter").forEach(b =>
-    b.classList.toggle("active", b.dataset.cat === cat)
-  );
-  renderProducts();
+function category(c){
+ active=c;
+ document.querySelectorAll(".filter").forEach(b=>
+  b.classList.toggle("active",b.dataset.cat===c)
+ );
+ render();
 }
-
-function searchProducts() {
-  renderProducts();
-  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+function searchProducts(){
+ render();
+ document.getElementById("products").scrollIntoView({behavior:"smooth"});
 }
-
-function addToCart(id) {
-  cart[id] = (cart[id] || 0) + 1;
-  renderCart();
-  showToast("प्रोडक्ट कार्ट में जोड़ दिया गया।");
+function add(id){
+ cart[id]=(cart[id]||0)+1;
+ drawCart();
+ toast("प्रोडक्ट कार्ट में जोड़ दिया गया।");
 }
+function drawCart(){
+ document.getElementById("count").textContent=
+  Object.values(cart).reduce((a,b)=>a+b,0);
 
-function renderCart() {
-  document.getElementById("cartCount").textContent =
-    Object.values(cart).reduce((a,b) => a+b, 0);
+ const items=Object.entries(cart)
+  .filter(([id,q])=>q>0)
+  .map(([id,q])=>({p:products.find(p=>p.id===Number(id)),q}));
 
-  const items = Object.entries(cart)
-    .filter(([id,q]) => q > 0)
-    .map(([id,q]) => ({p:products.find(p => p.id === Number(id)),q}))
-    .filter(x => x.p);
+ document.getElementById("items").innerHTML=items.length?
+ items.map(({p,q})=>`
+ <div class="cart-line">
+  <b>${p.name}</b><br>
+  ${money(p.price)} × ${q} = <b>${money(p.price*q)}</b>
+  <div class="qty">
+   <button onclick="qty(${p.id},-1)">−</button>
+   ${q}
+   <button onclick="qty(${p.id},1)">+</button>
+   <button onclick="del(${p.id})">हटाएं</button>
+  </div>
+ </div>`).join(""):"आपका कार्ट खाली है।";
 
-  document.getElementById("cartItems").innerHTML = items.length
-    ? items.map(({p,q}) => `
-      <div class="cart-line">
-        <strong>${p.name}</strong><br>
-        ${money(p.price)} × ${q} = <b>${money(p.price*q)}</b>
-        <div class="qty">
-          <button onclick="changeQty(${p.id},-1)">−</button>
-          <span>${q}</span>
-          <button onclick="changeQty(${p.id},1)">+</button>
-          <button onclick="removeItem(${p.id})">हटाएं</button>
-        </div>
-      </div>
-    `).join("")
-    : "<p>आपका कार्ट खाली है।</p>";
-
-  const total = items.reduce((s,{p,q}) => s + p.price*q, 0);
-  document.getElementById("cartTotal").textContent = money(total);
+ document.getElementById("total").textContent=
+  money(items.reduce((s,x)=>s+x.p.price*x.q,0));
 }
-
-function changeQty(id, amount) {
-  cart[id] = (cart[id] || 0) + amount;
-  if (cart[id] <= 0) delete cart[id];
-  renderCart();
+function qty(id,n){
+ cart[id]=(cart[id]||0)+n;
+ if(cart[id]<=0)delete cart[id];
+ drawCart();
 }
-
-function removeItem(id) {
-  delete cart[id];
-  renderCart();
+function del(id){delete cart[id];drawCart()}
+function openCart(){
+ document.getElementById("overlay").classList.add("open");
+ drawCart();
 }
-
-function openCart() {
-  document.getElementById("cartOverlay").classList.add("open");
-  renderCart();
-}
-function closeCart() {
-  document.getElementById("cartOverlay").classList.remove("open");
-}
-
-function openWhatsApp(message) {
-  if (!/^91\d{10}$/.test(WHATSAPP_NUMBER)) {
-    showToast("कोड में सही WhatsApp नंबर डालें।");
-    return;
-  }
-  window.open(
-    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message),
-    "_blank"
-  );
-}
-
-function quickWhatsApp(id) {
-  const p = products.find(x => x.id === id);
-  openWhatsApp(
-    `नमस्ते, मुझे ${p.name} ऑर्डर करना है। कीमत ${money(p.price)} है। कृपया उपलब्धता और डिलीवरी बताएं।`
-  );
-}
-
-function contactWhatsApp() {
-  openWhatsApp("नमस्ते, मुझे घर की हरियाली के प्रोडक्ट की जानकारी चाहिए।");
-}
-
-function placeOrder() {
-  const name = document.getElementById("customerName").value.trim();
-  const phone = document.getElementById("customerPhone").value.trim();
-  const address = document.getElementById("customerAddress").value.trim();
-
-  const items = Object.entries(cart)
-    .filter(([id,q]) => q > 0)
-    .map(([id,q]) => ({p:products.find(p => p.id === Number(id)),q}))
-    .filter(x => x.p);
-
-  if (!items.length) {
-    showToast("पहले कार्ट में प्रोडक्ट जोड़ें।");
-    return;
-  }
-  if (!name || !phone || !address) {
-    showToast("नाम, मोबाइल और पूरा पता भरें।");
-    return;
-  }
-  if (phone.replace(/\D/g,"").length < 10) {
-    showToast("सही मोबाइल नंबर भरें।");
-    return;
-  }
-
-  const lines = items.map(({p,q}) =>
-    `${p.name} × ${q} = ${money(p.price*q)}`
-  ).join("\n");
-  const total = items.reduce((s,{p,q}) => s+p.price*q,0);
-
-  const message =
-`🌱 घर की हरियाली - नया ऑर्डर
-
-ग्राहक: ${name}
-मोबाइल: ${phone}
-पता: ${address}
-
-प्रोडक्ट:
-${lines}
-
-कुल राशि: ${money(total)}
-पेमेंट: ${document.getElementById("paymentMethod").value}
-नोट: ${document.getElementById("orderNote").value.trim() || "कोई नोट नहीं"}
-
-कृपया ऑर्डर और डिलीवरी की पुष्टि करें।`;
-
-  openWhatsApp(message);
-}
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2500);
-}
-
-document.getElementById("searchInput").addEventListener("keydown", e => {
-  if (e.key === "Enter") searchProducts();
-});
-document.getElementById("cartOverlay").addEventListener("click", e => {
-  if (e.target.id === "cartOverlay") closeCart();
-});
-
-renderProducts();
-renderCart();
-</script>
-</body>
-</html>
+function closeCart(){
+ document.getElementById("overlay").cl
